@@ -14,6 +14,7 @@ from agno.os import AgentOS, CompanyConfig, OSManager
 from app.company import products
 from app.interfaces import attach_interfaces, mcp_auth
 from app.registry import registry, shared_knowledge, shared_learning
+from agents.basic import basic_agent
 from app.settings import manager_model
 from db import get_postgres_db
 
@@ -41,6 +42,7 @@ agent_os = AgentOS(
     queue=QueueConfig(durable=True, db=db),
     knowledge=[shared_knowledge],
     agents=[
+        basic_agent,
         # create_claude_engineer(),
         # create_codex_engineer(),
     ],
